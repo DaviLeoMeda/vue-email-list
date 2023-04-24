@@ -4,54 +4,37 @@ createApp({
 
     data() {
         return {
-            inputText: '',
-            todos: [
-                {
-                    text: 'Fare i compiti',
-                    done: false
-                },
-                {
-                    text: 'Fare la spesa',
-                    done: true
-                },
-                {
-                    text: 'Fare il bucato',
-                    done: false
-                }
-
-            ],
-            error: false
 
         }
     },
+
+    created() {
+        axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+            .then((res) => {
+                console.log(res.data.response)
+            })
+
+
+    },
     methods: {
-        submitInput() {
+        // randomMail() {
 
-            if (this.inputText != '') {
-                this.todos.unshift({
-                    text: this.inputText,
-                    done: false
-                })
-                this.error = false
-                this.inputText = ''
-            } else {
-                this.error = true
-            }
+        //     // for (i = 0; i < 10; i++) {
+        //     //     axios.get('https://flynn.boolean.careers/exercises/api/random/mail').then((res) => {
+        //     //         this.mailSingle[i] = res.data.response
+        //     //     })
+
+        //     //     console.log(this.mailSingle[i])
+        //     // }
 
 
-        },
-        deleteIt(i) {
-            this.todos.splice(i, 1)
-        },
-        strikeIt(i) {
 
-            if (this.todos[i].done == true) {
-                this.todos[i].done = false
-            } else if (this.todos[i].done == false) {
-                this.todos[i].done = true
-            }
-        }
+
+        // }
+
     }
+
+
 
 }).mount('#app')
 
