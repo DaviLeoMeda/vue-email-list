@@ -4,33 +4,41 @@ createApp({
 
     data() {
         return {
+            mailHtml: [
 
+
+            ]
         }
     },
 
-    created() {
-        axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
-            .then((res) => {
-                console.log(res.data.response)
-            })
+    mounted() {
 
+        this.randomMail()
+
+        // for (i = 0; i < 10; i++) {
+        //     randomMail();
+        // }
 
     },
     methods: {
-        // randomMail() {
-
-        //     // for (i = 0; i < 10; i++) {
-        //     //     axios.get('https://flynn.boolean.careers/exercises/api/random/mail').then((res) => {
-        //     //         this.mailSingle[i] = res.data.response
-        //     //     })
-
-        //     //     console.log(this.mailSingle[i])
-        //     // }
 
 
 
+        randomMail() {
 
-        // }
+            for (i = 0; i < 10; i++) {
+
+                axios.get('https://flynn.boolean.careers/exercises/api/random/mail').then((res) => {
+                    this.mailHtml.push(res.data.response)
+
+                })
+            }
+
+            console.log(mailHtml)
+
+
+
+        }
 
     }
 
