@@ -34,9 +34,6 @@ createApp({
                 })
             }
 
-            console.log(mailHtml)
-
-
 
         }
 
